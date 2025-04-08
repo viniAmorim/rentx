@@ -1,0 +1,9 @@
+/node_modules
+/.vscode
+/coverage
+/tmp/avatar/*
+/tmp/cars/*
+!tmp/.gitkeep
+/dist
+.env
+ormconfig.json
