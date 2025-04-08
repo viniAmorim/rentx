@@ -12,7 +12,7 @@ specificationsRoutes.post(
   "/",
   ensureAuthenticated,
   ensureAdmin,
-  createSpecificationController.handle
+  createSpecificationController.handle.bind(createSpecificationController)
 );
 
 export { specificationsRoutes };

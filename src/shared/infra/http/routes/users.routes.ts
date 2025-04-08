@@ -15,14 +15,14 @@ const createUserController = new CreateUserController();
 const updateUserAvatarController = new UpdateUserAvatarController();
 const profileUserController = new ProfileUserController();
 
-usersRoutes.post("/", createUserController.handle);
+usersRoutes.post("/", createUserController.handle.bind(createUserController));
 usersRoutes.patch(
   "/avatar",
   ensureAuthenticated,
   uploadAvatar.single("avatar"),
-  updateUserAvatarController.handle
+  updateUserAvatarController.handle.bind(updateUserAvatarController)
 );
 
-usersRoutes.get("/profile", ensureAuthenticated, profileUserController.handle);
+usersRoutes.get("/profile", ensureAuthenticated, profileUserController.handle.bind(profileUserController));
 
 export { usersRoutes };

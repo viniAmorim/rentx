@@ -8,7 +8,7 @@ const passwordRoutes = Router();
 const sendForgotPasswordMailController = new SendForgotPasswordMailController();
 const resetUserPasswordController = new ResetUserPasswordController();
 
-passwordRoutes.post("/forgot", sendForgotPasswordMailController.handle);
-passwordRoutes.post("/reset", resetUserPasswordController.handle);
+passwordRoutes.post("/forgot", sendForgotPasswordMailController.handle.bind(sendForgotPasswordMailController));
+passwordRoutes.post("/reset", resetUserPasswordController.handle.bind(resetUserPasswordController));
 
 export { passwordRoutes };

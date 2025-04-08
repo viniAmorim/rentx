@@ -22,17 +22,17 @@ categoriesRoutes.post(
   "/",
   ensureAuthenticated,
   ensureAdmin,
-  createCategoryController.handle
+  createCategoryController.handle.bind(createCategoryController)
 );
 
-categoriesRoutes.get("/", listCategoriesController.handle);
+categoriesRoutes.get("/", listCategoriesController.handle.bind(listCategoriesController));
 
 categoriesRoutes.post(
   "/import",
   ensureAuthenticated,
   ensureAdmin,
   upload.single("file"),
-  importCategoryController.handle
+  importCategoryController.handle.bind(importCategoryController)
 );
 
 export { categoriesRoutes };
