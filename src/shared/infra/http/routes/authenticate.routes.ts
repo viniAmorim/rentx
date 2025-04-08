@@ -10,6 +10,6 @@ const refreshTokenController = new RefreshTokenController();
 
 authenticateRoutes.post("/sessions", authenticateUserController.handle.bind(authenticateUserController));
 
-authenticateRoutes.post("/refresh-token", refreshTokenController.handle);
+authenticateRoutes.post("/refresh-token", refreshTokenController.handle.bind(refreshTokenController));
 
 export { authenticateRoutes };

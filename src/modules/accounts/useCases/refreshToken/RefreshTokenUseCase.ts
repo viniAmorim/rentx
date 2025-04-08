@@ -52,7 +52,7 @@ class RefreshTokenUseCase {
 
     const refresh_token = sign({ email }, auth.secret_refresh_token, {
       subject: sub,
-      expiresIn: auth.expires_in_refresh_token,
+      expiresIn: String(auth.expires_in_refresh_token),
     });
 
     const expires_date = this.dateProvider.addDays(
@@ -67,7 +67,7 @@ class RefreshTokenUseCase {
 
     const newToken = sign({}, auth.secret_token, {
       subject: user_id,
-      expiresIn: auth.expires_in_token,
+      expiresIn: String(auth.expires_in_token),
     });
 
     return {
